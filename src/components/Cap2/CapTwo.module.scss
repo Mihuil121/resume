@@ -1,0 +1,75 @@
+$size: 0.5rem;
+$second: 0.5s;
+$font: 2rem;
+$wH: 20rem;
+
+.CapTwo {
+    width: $wH;
+    height: $wH + 10;
+    background: #fa8072;
+    border: $size solid #3d1c1c;
+    border-radius: $font - 1;
+    p {
+        color: #fff;
+    }
+    position: absolute;
+    right: $size;
+    top: 8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px); 
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); 
+    }
+}
+
+.Rubik {
+    p {
+        font-size: $font;
+    }
+}
+
+.contentCapTwo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.CapTwoMenu {
+    p {
+        height: $font + 1;
+        transition: $second;
+        font-size: 1.2rem;
+        cursor: pointer;
+        opacity: 0; 
+        animation: fadeInMenu 0.5s forwards; 
+        animation-delay: 0.3s; 
+
+        &:hover {
+            color: #000000;
+            font-size: 1.5rem;
+        }
+    }
+}
+
+@keyframes fadeInMenu {
+    0% {
+        opacity: 0;
+        transform: translateY(10px); 
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
