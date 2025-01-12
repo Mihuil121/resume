@@ -5,20 +5,19 @@ $wH: 20rem;
 
 .CapTwo {
     width: $wH;
-    height: $wH + 10;
+    height: $wH + 10; // This should be a valid unit, e.g., $wH + 10rem
     background: #fa8072;
     border: $size solid #3d1c1c;
     border-radius: $font - 1;
+    
     p {
         color: #fff;
     }
+    
     position: absolute;
-<<<<<<< HEAD
-    right: $size;
+    right: $size; // Adjusted to remove conflict
     top: 8rem;
-=======
-    right: $size +0.5;
->>>>>>> master
+    
     display: flex;
     justify-content: center;
     align-items: center;
@@ -52,7 +51,7 @@ $wH: 20rem;
 
 .CapTwoMenu {
     p {
-        height: $font + 1;
+        height: $font + 1; // This should also be a valid unit, e.g., $font + 1rem
         transition: $second;
         font-size: 1.2rem;
         cursor: pointer;

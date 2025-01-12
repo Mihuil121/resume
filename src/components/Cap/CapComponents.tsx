@@ -1,45 +1,34 @@
-'use client'
+'use client';
 import styles from './capStyle.module.scss';
 import Image from 'next/image';
 import logo from '../../image/logo.png';
 import { useState } from 'react';
 import CapTwo from '../Cap2/CapTwo';
 import { RxCross2 } from "react-icons/rx";
-<<<<<<< HEAD
-=======
 import { AnimatePresence } from "motion/react";
 import * as motion from "motion/react-client";
->>>>>>> master
 
 interface ImathBorderDiv {
-    (counts: number): void
+    (counts: number): void;
 }
 interface IMouse {
-    (): boolean
+    (): boolean;
 }
 interface IhandleClick {
-    (): void
+    (): void;
 }
 
 const CapComponents: React.FC = () => {
     const count: number = 3;
     const mathBorder: any[] = [];
     const [useBoolean, setBoolean] = useState<boolean>(false);
-<<<<<<< HEAD
-    const [useCapT, setCapT] = useState<boolean>(false)
-    const iconComponents = <>
-        <div className={styles.iconComponents}>
-            <RxCross2 />
-        </div>
-    </>
-=======
     const [useCapT, setCapT] = useState<boolean>(false);
+
     const iconComponents = (
         <div className={styles.iconComponents}>
             <RxCross2 />
         </div>
     );
->>>>>>> master
 
     const mathBorderDiv: ImathBorderDiv = (counts) => {
         for (let index: number = 0; index < counts; index++) {
@@ -68,19 +57,6 @@ const CapComponents: React.FC = () => {
     mathBorderDiv(count);
 
     const MouseOn: IMouse = () => {
-<<<<<<< HEAD
-        setBoolean(true)
-        return true
-    }
-
-    const MouseOff: IMouse = () => {
-        setBoolean(false)
-        return false
-    }
-
-    const handleClick: IhandleClick = () => {
-        setCapT(prevItem => !prevItem)
-=======
         setBoolean(true);
         return true;
     }
@@ -92,7 +68,6 @@ const CapComponents: React.FC = () => {
 
     const handleClick: IhandleClick = () => {
         setCapT(prevItem => !prevItem);
->>>>>>> master
     }
 
     return (
@@ -110,10 +85,7 @@ const CapComponents: React.FC = () => {
                     </div>
                 </article>
             </main>
-<<<<<<< HEAD
-            {useCapT ? <CapTwo /> : null}
-=======
-            <div style={{ marginTop: '-1.5rem', }}>
+            <div style={{ marginTop: '-1.5rem' }}>
                 <AnimatePresence>
                     {useCapT && (
                         <motion.div
@@ -143,8 +115,6 @@ const CapComponents: React.FC = () => {
                     )}
                 </AnimatePresence>
             </div>
-
->>>>>>> master
         </div>
     );
 }
