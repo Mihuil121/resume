@@ -13,8 +13,12 @@ $wH: 20rem;
         color: #fff;
     }
     position: absolute;
+<<<<<<< HEAD
     right: $size;
     top: 8rem;
+=======
+    right: $size +0.5;
+>>>>>>> master
     display: flex;
     justify-content: center;
     align-items: center;
