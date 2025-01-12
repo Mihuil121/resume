@@ -88,10 +88,26 @@ const CapComponents: React.FC = () => {
                 <AnimatePresence>
                     {useCapT && (
                         <motion.div
-                            initial={{ opacity: 0, scale: 0.5, y: 50, rotate: -20 }}
-                            animate={{ opacity: 1, scale: 1, y: 0, rotate: 0 }}
-                            exit={{ opacity: 0, scale: 0.5, y: 50, rotate: 20 }}
-                            transition={{ duration: 0.6, ease: [0.68, -0.55, 0.27, 1.55] }}
+                            initial={{
+                                opacity: 0,
+                                x: 100,
+                            }}
+                            animate={{
+                                opacity: 1,
+                                x: 0,
+                                transition: {
+                                    duration: 0.6,
+                                    ease: [0.4, 0.0, 0.2, 1],
+                                },
+                            }}
+                            exit={{
+                                opacity: 0,
+                                x: 100,
+                                transition: {
+                                    duration: 0.6,
+                                    ease: [0.4, 0.0, 0.2, 1],
+                                },
+                            }}
                         >
                             <CapTwo />
                         </motion.div>
