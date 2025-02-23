@@ -7,6 +7,7 @@ import CapTwo from '../Cap2/CapTwo';
 import { RxCross2 } from "react-icons/rx";
 import { AnimatePresence } from "motion/react";
 import * as motion from "motion/react-client";
+import Music from '../music/music';
 
 interface ImathBorderDiv {
     (counts: number): void;
@@ -24,7 +25,7 @@ const CapComponents: React.FC = () => {
     const [useBoolean, setBoolean] = useState<boolean>(false);
     const [useCapT, setCapT] = useState<boolean>(false);
 
-    const iconComponents = (
+    const iconComponents:any = (
         <div className={styles.iconComponents}>
             <RxCross2 />
         </div>
@@ -79,6 +80,9 @@ const CapComponents: React.FC = () => {
                             src={logo}
                             alt="icon"
                         />
+                    </div>
+                    <div className={styles.Music}>
+                        <Music />
                     </div>
                     <div className={`${styles.contentBorder} ${useCapT ? styles.cross : ''}`} onMouseEnter={MouseOn} onMouseLeave={MouseOff} onClick={handleClick}>
                         {useCapT ? iconComponents : mathBorder}

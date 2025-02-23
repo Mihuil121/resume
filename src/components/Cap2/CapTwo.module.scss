@@ -5,19 +5,17 @@ $wH: 20rem;
 
 .CapTwo {
     width: $wH;
-    height: $wH + 10; // This should be a valid unit, e.g., $wH + 10rem
+    height: $wH + 10;
     background: #fa8072;
     border: $size solid #3d1c1c;
     border-radius: $font - 1;
-    
+
     p {
         color: #fff;
     }
-    
+
     position: absolute;
-    right: $size; // Adjusted to remove conflict
-    top: 8rem;
-    
+    right: $size;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -28,11 +26,12 @@ $wH: 20rem;
 @keyframes fadeIn {
     0% {
         opacity: 0;
-        transform: translateY(-10px); 
+        transform: translateY(-10px);
     }
+
     100% {
         opacity: 1;
-        transform: translateY(0); 
+        transform: translateY(0);
     }
 }
 
@@ -51,13 +50,13 @@ $wH: 20rem;
 
 .CapTwoMenu {
     p {
-        height: $font + 1; // This should also be a valid unit, e.g., $font + 1rem
+        height: $font + 1;
         transition: $second;
         font-size: 1.2rem;
         cursor: pointer;
-        opacity: 0; 
-        animation: fadeInMenu 0.5s forwards; 
-        animation-delay: 0.3s; 
+        opacity: 0;
+        animation: fadeInMenu 0.5s forwards;
+        animation-delay: 0.3s;
 
         &:hover {
             color: #000000;
@@ -69,8 +68,9 @@ $wH: 20rem;
 @keyframes fadeInMenu {
     0% {
         opacity: 0;
-        transform: translateY(10px); 
+        transform: translateY(10px);
     }
+
     100% {
         opacity: 1;
         transform: translateY(0);

@@ -1,0 +1,39 @@
+$r: 3rem;
+$c: center;
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.musicans {
+    border-radius: 5rem;
+    width: $r;
+    height: $r;
+    display: flex;
+    align-items: $c;
+    justify-content: $c;
+    background-size: cover;
+    background-position: $c;
+}
+
+.leftRight {
+    font-size: $r - 1.5;
+    transition: 0.3s;
+
+    &:hover {
+        font-size: $r - 0.5;
+    }
+}
+
+.contentPlayerSpawn {
+    position: absolute;
+    margin-top: 25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff00;
+}
+

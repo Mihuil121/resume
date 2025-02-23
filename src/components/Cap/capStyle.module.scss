@@ -5,6 +5,7 @@ $remI: 10rem;
         opacity: 0;
         transform: translateY(-20px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -16,6 +17,7 @@ $remI: 10rem;
         opacity: 0;
         transform: translateX(-100%);
     }
+
     to {
         opacity: 1;
         transform: translateX(0);
@@ -27,6 +29,7 @@ $remI: 10rem;
         opacity: 0;
         transform: scale(0.5);
     }
+
     to {
         opacity: 1;
         transform: scale(1);
@@ -38,7 +41,7 @@ $remI: 10rem;
     border-radius: 0.2rem;
     display: flex;
     align-items: center;
-    animation: fadeIn 0.5s ease-in-out; 
+    animation: fadeIn 0.5s ease-in-out;
 }
 
 .content {
@@ -49,17 +52,19 @@ $remI: 10rem;
     img {
         width: $remI;
         height: $remI;
-        animation: zoomIn 0.5s ease-in-out; 
+        animation: zoomIn 0.5s ease-in-out;
     }
 }
 
-.Border0, .Border1, .Border2 {
+.Border0,
+.Border1,
+.Border2 {
     height: 0.5rem;
     transition: background 0.5s, border-radius 0.5s, width 0.5s, margin 0.5s;
 }
 
 .Border0 {
-    animation: slideIn 0.5s ease-in-out; 
+    animation: slideIn 0.5s ease-in-out;
 }
 
 .Border1 {
@@ -67,7 +72,7 @@ $remI: 10rem;
 }
 
 .Border2 {
-    animation: slideIn 0.7s ease-in-out; 
+    animation: slideIn 0.7s ease-in-out;
 }
 
 .contentBorder {
@@ -77,17 +82,26 @@ $remI: 10rem;
     position: absolute;
     right: 0rem;
     cursor: pointer;
-    animation: slideIn 0.5s ease-in-out; 
+    animation: slideIn 0.5s ease-in-out;
 }
 
-.iconComponents{
+.iconComponents {
     color: rgb(255, 99, 71);
     font-size: $remI - 5;
     transition: 0.5s;
     margin-top: -2rem;
 
-    &:hover{
+    &:hover {
         font-size: $remI - 4;
         color: #FF4100;
     }
+}
+
+.Music {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    right: $remI + 2;
+    position: absolute;
+    height: $remI ;
 }
