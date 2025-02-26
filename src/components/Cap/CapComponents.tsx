@@ -72,7 +72,7 @@ const CapComponents: React.FC = () => {
     }
 
     return (
-        <div>
+        <div >
             <main className={styles.mainCap}>
                 <article className={styles.content}>
                     <div className={styles.contentImage}>

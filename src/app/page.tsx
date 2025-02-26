@@ -1,8 +1,8 @@
-import CapComponents from "@/components/Cap/CapComponents";
+import Homes from "@/components/Homes/Homes";
 export default function Home() {
   return (
     <div >
-      <CapComponents />
+      <Homes />
     </div>
   );
 }

@@ -1,0 +1,35 @@
+$bacKristy: '../../../image/Backristy.jpg';
+$top: 5rem;
+
+.MainHome {
+    margin-top: $top;
+    height: 7*$top;
+    width: 95rem;
+    background: url($bacKristy);
+    border-radius: $top - 4;
+    background-repeat: no-repeat; 
+    background-size: cover; 
+    background-position: center;
+}
+
+.contantText{
+    width: 70rem;
+    text-align: left;
+    color: aliceblue;
+    h5{
+        font-size: 1.5rem;
+    }
+    h1{
+        font-size: 3.5rem;
+    }
+    p{
+        font-size: 14px;
+    }
+}
+
+.contantImg{
+    img{
+        width: 20rem;
+        height: 20rem;
+    }
+}
