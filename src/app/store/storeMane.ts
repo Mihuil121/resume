@@ -18,6 +18,11 @@ interface IPlayStore {
     setPlay: () => void
 }
 
+interface IGit{
+    git:'https://github.com/Mihuil121',
+    setWindow:()=>void 
+}
+
 export const playerStore = create<IPlayerStore>((set) => ({
     playerId: 0,
     setPlayerId: (id: number) => set({ playerId: id }),
@@ -34,4 +39,9 @@ export const pointStore = create<IPointStore>((set) => ({
 export const playStore = create<IPlayStore>((set) => ({
     play:false,
     setPlay:()=>set((state)=>({play: !state.play}))
+}))
+
+export const githubClik = create<IGit>((set,get)=>({
+    git:'https://github.com/Mihuil121',
+    setWindow:()=> window.open(get().git)
 }))
