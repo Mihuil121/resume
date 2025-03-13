@@ -1,9 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence, Variants } from 'framer-motion';
 import { playStore, playerStore } from '@/app/store/storeMane';
-import { Rubik_Scribble } from 'next/font/google';
+import { Rubik_Scribble, Creepster, Nosifer } from 'next/font/google';
 
-const rubikMono = Rubik_Scribble({
+// More interesting horror fonts
+const creepster = Creepster({
+  weight: '400',
+  subsets: ['latin'],
+});
+
+const nosifer = Nosifer({
+  weight: '400',
+  subsets: ['latin'],
+});
+
+const rubikScribble = Rubik_Scribble({
   weight: '400',
   subsets: ['latin'],
 });
@@ -13,19 +24,42 @@ interface Lyric {
   text: string;
 }
 
+// More dynamic shake animation
 const shakeVariant: Variants = {
   animate: (custom: number) => ({
-    x: [0, -2, 2, -2, 2, 0],
+    x: [0, -3, 3, -3, 3, 0],
     y: [0, 2, -2, 2, -2, 0],
     rotate: [0, -1, 1, -1, 1, 0],
     transition: {
       duration: 0.8,
       repeat: Infinity,
       repeatType: 'reverse',
-      ease: 'linear',
+      ease: 'easeInOut',
       delay: custom * 0.3,
     },
   }),
+};
+
+// More interesting entrance and exit animations
+const containerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: { 
+    opacity: 1, 
+    transition: { 
+      duration: 0.8,
+      when: "beforeChildren",
+      staggerChildren: 0.1 
+    } 
+  },
+  exit: { 
+    opacity: 0,
+    transition: { 
+      duration: 0.6,
+      when: "afterChildren",
+      staggerChildren: 0.05,
+      staggerDirection: -1
+    } 
+  }
 };
 
 const LyricsOverlay: React.FC = () => {
@@ -33,9 +67,23 @@ const LyricsOverlay: React.FC = () => {
   const { playerId } = playerStore();
   const [currentLines, setCurrentLines] = useState<string[]>([]);
   const [startTime, setStartTime] = useState<number | null>(null);
+  const [activeFontIndex, setActiveFontIndex] = useState(0);
+
+  // Alternate between fonts for variety
+  const fonts = [creepster, nosifer, rubikScribble];
+
+  // Randomly change font for variety
+  useEffect(() => {
+    if (play && playerId === 2) {
+      const fontInterval = setInterval(() => {
+        setActiveFontIndex(prev => (prev + 1) % fonts.length);
+      }, 10000); // Change font every 10 seconds
+      
+      return () => clearInterval(fontInterval);
+    }
+  }, [play, playerId]);
 
   const lyrics: Lyric[] = [
-
     { time: 21, text: "Проснувшись в холодном поту" },
     { time: 23, text: "Красные глаза и с привкусом крови во рту" },
     { time: 26, text: "Всякий раз признаться себе же сам не могу" },
@@ -96,6 +144,8 @@ const LyricsOverlay: React.FC = () => {
 
   if (playerId !== 2) return null;
 
+  const activeFont = fonts[activeFontIndex];
+
   return (
     <AnimatePresence>
       {play && (
@@ -111,11 +161,15 @@ const LyricsOverlay: React.FC = () => {
             bottom: 0,
             background: 'rgba(0, 0, 0, 0.95)',
             zIndex: 9999,
-            backdropFilter: 'blur(6px)',
+            backdropFilter: 'blur(8px)',
             overflow: 'auto',
           }}
         >
-          <div
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
             style={{
               display: 'flex',
               flexDirection: 'column',
@@ -125,36 +179,61 @@ const LyricsOverlay: React.FC = () => {
               width: '100%',
               padding: '20px',
               boxSizing: 'border-box',
+              background: 'radial-gradient(circle, rgba(20,0,0,0.9) 0%, rgba(0,0,0,0.95) 100%)',
             }}
           >
             <AnimatePresence mode="popLayout">
               {currentLines.map((line, index) => (
                 <motion.div
                   key={line + index}
-                  initial={{ opacity: 0, y: 50 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -50 }}
-                  transition={{
-                    opacity: { duration: 0.5 },
-                    y: { duration: 0.5 },
+                  initial={{ 
+                    opacity: 0, 
+                    y: 50,
+                    filter: 'blur(10px)'
                   }}
-                  className={`text-center ${rubikMono.className}`}
+                  animate={{ 
+                    opacity: 1, 
+                    y: 0,
+                    filter: 'blur(0px)' 
+                  }}
+                  exit={{ 
+                    opacity: 0, 
+                    y: -50,
+                    filter: 'blur(10px)' 
+                  }}
+                  transition={{
+                    opacity: { duration: 0.6 },
+                    y: { duration: 0.5, type: "spring", stiffness: 100 },
+                    filter: { duration: 0.4 }
+                  }}
+                  className={`text-center ${activeFont.className}`}
                   style={{
-                    fontSize: '2.8rem',
-                    color: '#8b0000',
-                    textShadow: '0 0 8px #ff0000, 0 0 16px #ff0000, 0 0 24px #ff0000',
+                    fontSize: index === currentLines.length - 1 ? '3rem' : '2.6rem',
+                    color: index === currentLines.length - 1 ? '#ff0000' : '#8b0000',
+                    textShadow: `0 0 8px #ff0000, 0 0 16px #ff0000, 0 0 ${index === currentLines.length - 1 ? '32px' : '24px'} #ff0000`,
                     textAlign: 'center',
                     width: '100%',
                     margin: '10px 0',
+                    letterSpacing: '0.05em',
+                    fontWeight: 'bold',
                   }}
                 >
-                  <motion.div custom={index} variants={shakeVariant} animate="animate">
+                  <motion.div 
+                    custom={index} 
+                    variants={shakeVariant} 
+                    animate="animate"
+                    style={{
+                      display: 'inline-block',
+                      position: 'relative',
+                      padding: '0 15px'
+                    }}
+                  >
                     {line}
                   </motion.div>
                 </motion.div>
               ))}
             </AnimatePresence>
-          </div>
+          </motion.div>
         </motion.div>
       )}
     </AnimatePresence>
