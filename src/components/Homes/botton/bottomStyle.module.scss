@@ -1,0 +1,31 @@
+$whr:1.5rem;
+
+.bottom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5rem;
+    color: aliceblue;
+
+    .iconB {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        justify-content: space-between;
+        
+        p {
+            margin-right: 0.5rem;
+            display: flex;
+            justify-content: left;
+            margin-left: 1rem;
+            font-size: 1.5rem;
+        }
+
+        svg {
+            justify-content: right;
+            width: $whr; 
+            height: $whr; 
+            margin-right: 1rem;
+        }
+    }
+}

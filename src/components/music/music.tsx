@@ -89,7 +89,7 @@ const Music = () => {
   }, [playerId, play, audio]);
 
   return (
-    <div className={`${styles.container} ${montserrat.className}`}>
+    <div className={`${styles.container} ${montserrat.className}`} style={{ position: 'relative', zIndex: 10 }}>
       <motion.div
         className={styles.musicans}
         onClick={player}
@@ -149,7 +149,9 @@ const Music = () => {
               }}
               style={{
                 border: "0px solid #ffffff00",
-                background: "#ffffff00"
+                background: "#ffffff00",
+                position: "relative",
+                zIndex: 10
               }}
             >
               <Player />

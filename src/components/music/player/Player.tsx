@@ -27,7 +27,7 @@ const Player = () => {
         return false
     }
     return (
-        <div onMouseEnter={onPointMouse} onMouseLeave={offPointMouse}>
+        <div onMouseEnter={onPointMouse} onMouseLeave={offPointMouse} style={{ position: 'relative', zIndex: 10 }}>
             <main className={styles.contentPlay}>
                 <div className={styles.contentPlayImg}>
                     <motion.div

@@ -64,7 +64,8 @@ const HomeMain: React.FC = () => {
                                 transform: isVisible ? 'translateY(0)' : 'translateY(-20px)',
                                 opacity: isVisible ? 1 : 0,
                                 transition: 'transform 0.6s ease, opacity 0.6s ease',
-                                marginBottom: '1rem'
+                                marginBottom: '1rem',
+                                zIndex: 2,
                             }}>
                                 ✌🏻 Привет! Я Михаил (Mihuil121)
                             </h5>
@@ -114,7 +115,9 @@ const HomeMain: React.FC = () => {
                                 style={{
                                     borderRadius: '16px',
                                     overflow: 'hidden',
-                                    boxShadow: '0 10px 30px rgba(0, 0, 0, 0.2)'
+                                    boxShadow: '0 10px 30px rgba(0, 0, 0, 0.2)',
+                                    position: 'relative',
+                                    zIndex: 1, // Changed to lower z-index to prevent overlap with player
                                 }}
                             >
                                 <Image

@@ -18,7 +18,7 @@ interface IconType {
   color: string;
 }
 
-// Основной шрифт для заголовков - выразительный и заметный
+
 const rubik: NextFont = Rubik_Mono_One({
   subsets: ['latin', 'cyrillic'],
   weight: '400',
@@ -26,7 +26,7 @@ const rubik: NextFont = Rubik_Mono_One({
   display: 'swap'
 });
 
-// Современный шрифт для технических названий стека
+
 const jetbrains: NextFont = JetBrains_Mono({
   subsets: ['latin', 'cyrillic'],
   weight: ['400', '700'],
@@ -34,7 +34,7 @@ const jetbrains: NextFont = JetBrains_Mono({
   display: 'swap'
 });
 
-// Дополнительный современный шрифт для улучшенной читаемости
+
 const spaceGrotesk: NextFont = Space_Grotesk({
   subsets: ['latin'],
   weight: ['400', '500', '700'],
@@ -42,17 +42,17 @@ const spaceGrotesk: NextFont = Space_Grotesk({
   display: 'swap'
 });
 
-// Обновленный массив иконок с уникальными цветами для каждой технологии
+
 const iconS: IconType[] = [
-  { icon: <FaReact />, color: '#61DAFB' }, // React - голубой
-  { icon: <TbBrandNextjs />, color: '#ffffff' }, // Next.js - белый
-  { icon: <BiLogoTypescript />, color: '#3178C6' }, // TypeScript - синий
-  { icon: <FaJsSquare />, color: '#F7DF1E' }, // JavaScript - желтый
-  { icon: <FaGitAlt />, color: '#F05032' }, // Git - оранжевый
-  { icon: <TbBrandRedux />, color: '#764ABC' }, // Redux - фиолетовый
-  { icon: <RiBearSmileFill />, color: '#CD6799' }, // Медведь - розовый (как Zustand)
-  { icon: <BsFiletypeScss />, color: '#CC6699' }, // SCSS - розовый
-  { icon: <PiLinuxLogoFill />, color: '#FCC624' }, // Linux - желтый
+  { icon: <FaReact />, color: '#61DAFB' },
+  { icon: <TbBrandNextjs />, color: '#ffffff' },
+  { icon: <BiLogoTypescript />, color: '#3178C6' }, 
+  { icon: <FaJsSquare />, color: '#F7DF1E' }, 
+  { icon: <FaGitAlt />, color: '#F05032' }, 
+  { icon: <TbBrandRedux />, color: '#764ABC' },
+  { icon: <RiBearSmileFill />, color: '#CD6799' }, 
+  { icon: <BsFiletypeScss />, color: '#CC6699' },
+  { icon: <PiLinuxLogoFill />, color: '#FCC624' }, 
 ];
 
 export const Stack: React.FC = () => {
@@ -68,7 +68,6 @@ export const Stack: React.FC = () => {
 
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
-  // Вариант анимации для заголовка
   const titleVariants = {
     hidden: { opacity: 0, y: -50, scale: 0.8, rotateX: 90 },
     visible: {
@@ -85,7 +84,6 @@ export const Stack: React.FC = () => {
     }
   };
 
-  // Вариант анимации для карточек технологий
   const cardVariants = {
     hidden: (index: number) => ({
       opacity: 0,
@@ -186,7 +184,7 @@ export const Stack: React.FC = () => {
                     right: 0,
                     bottom: 0,
                     background: `radial-gradient(circle at center, ${iconS[index]?.color}20 0%, transparent 70%)`,
-                    zIndex: 0
+                    zIndex: 4
                   }}
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
@@ -199,7 +197,7 @@ export const Stack: React.FC = () => {
                   fontSize: '2rem',
                   marginBottom: '10px',
                   position: 'relative',
-                  zIndex: 1
+                  zIndex: 4
                 }}
                 animate={{
                   rotate: hoveredIndex === index ? [0, -10, 10, -5, 5, 0] : 0,
@@ -219,7 +217,7 @@ export const Stack: React.FC = () => {
                 className={jetbrains.className}
                 style={{
                   position: 'relative',
-                  zIndex: 1,
+                  zIndex: 4,
                   margin: 0,
                   fontWeight: hoveredIndex === index ? 700 : 400,
                   letterSpacing: '0.5px'
@@ -245,7 +243,7 @@ export const Stack: React.FC = () => {
                     height: '60px',
                     borderRadius: '50%',
                     background: `${iconS[index]?.color}30`,
-                    zIndex: 0
+                    zIndex: 4
                   }}
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}

@@ -1,5 +1,6 @@
 import { create } from 'zustand'
 import { music } from '@/components/music/musicT'
+import { contact, IContact } from '@/components/Homes/botton/bottonT'
 
 interface IPlayerStore {
     playerId: number,
@@ -18,9 +19,14 @@ interface IPlayStore {
     setPlay: () => void
 }
 
-interface IGit{
-    git:'https://github.com/Mihuil121',
-    setWindow:()=>void 
+interface IGit {
+    git: 'https://github.com/Mihuil121',
+    setWindow: () => void
+}
+
+interface IHrefLink {
+    setLink:(index:number)=>void,
+    contact:IContact[];
 }
 
 export const playerStore = create<IPlayerStore>((set) => ({
@@ -37,11 +43,23 @@ export const pointStore = create<IPointStore>((set) => ({
 }))
 
 export const playStore = create<IPlayStore>((set) => ({
-    play:false,
-    setPlay:()=>set((state)=>({play: !state.play}))
+    play: false,
+    setPlay: () => set((state) => ({ play: !state.play }))
 }))
 
-export const githubClik = create<IGit>((set,get)=>({
-    git:'https://github.com/Mihuil121',
-    setWindow:()=> window.open(get().git)
+export const githubClik = create<IGit>((set, get) => ({
+    git: 'https://github.com/Mihuil121',
+    setWindow: () => window.open(get().git)
+}))
+
+export const hrefLink = create<IHrefLink>((set, get) => ({
+    setLink: (index) => {
+        const url:string|undefined = get().contact[index]?.url;
+        if (url) {
+            window.open(url)
+        } else {
+            console.error("ошибка ")
+        }
+    },
+    contact
 }))

@@ -1,6 +1,7 @@
 import HomeMain from "./main/HomeMain"
 import { Stack } from "./stack/Stack"
 import Exhibition from "./main/Exhibition/Exhibition"
+import Botton from "./botton/Botton"
 
 const Homes: React.FC = () => {
     return (
@@ -8,6 +9,7 @@ const Homes: React.FC = () => {
             <HomeMain />
             <Stack />
             <Exhibition />
+            <Botton />
         </>
     )
 }

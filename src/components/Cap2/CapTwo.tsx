@@ -18,7 +18,7 @@ const Rubik: NextFont = Rubik_Mono_One({
 
 const CapTwo: React.FC = () => {
     return (
-        <div>
+        <div style={{position:'relative',zIndex:10}}>
             <main className={styles.CapTwo}>
                 <article className={styles.contentCapTwo}>
                     <div className={styles.Rubik}>
