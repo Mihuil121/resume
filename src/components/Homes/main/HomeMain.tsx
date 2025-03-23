@@ -1,12 +1,13 @@
 "use client"
-import Image from "next/image"
 import styles from "./HomeMain.module.scss"
 import PClick from "./pClick/PClick"
-import micha121 from '../../../image/gif/micha.gif'
 import { Rubik_Mono_One, Montserrat, Anton } from 'next/font/google'
 import { NextFont } from "next/dist/compiled/@next/font"
 import * as motion from "motion/react-client";
 import { useEffect, useState } from "react"
+import dynamic from 'next/dynamic';
+
+const ThreeDModel = dynamic(() => import('./model/Three'), { ssr: false });
 
 const FontRubik: NextFont = Rubik_Mono_One({
     subsets: ['latin'],
@@ -117,17 +118,10 @@ const HomeMain: React.FC = () => {
                                     overflow: 'hidden',
                                     boxShadow: '0 10px 30px rgba(0, 0, 0, 0.2)',
                                     position: 'relative',
-                                    zIndex: 1, // Changed to lower z-index to prevent overlap with player
+                                    zIndex: 1,
                                 }}
                             >
-                                <Image
-                                    src={micha121}
-                                    alt="фото прогера"
-                                    style={{
-                                        transition: 'transform 0.5s ease',
-                                        transform: 'scale(1.02)'
-                                    }}
-                                />
+                                <ThreeDModel />
                             </motion.div>
                         </section>
                     </section>
