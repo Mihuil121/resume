@@ -29,6 +29,7 @@ interface IHrefLink {
     contact:IContact[];
 }
 
+
 export const playerStore = create<IPlayerStore>((set) => ({
     playerId: 0,
     setPlayerId: (id: number) => set({ playerId: id }),
@@ -63,3 +64,16 @@ export const hrefLink = create<IHrefLink>((set, get) => ({
     },
     contact
 }))
+
+
+
+interface CardImage {
+    setFlag: (index: number) => void
+  }
+  
+  export const CardImage = create<CardImage>(() => ({
+    setFlag: (index: number) => {
+      // Логика может быть добавлена при необходимости
+      console.log(`Position set for index: ${index}`)
+    }
+  }))
