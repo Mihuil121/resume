@@ -81,6 +81,7 @@ const CardProject: React.FC = () => {
                     alt={data.text}
                     width={500}
                     height={300}
+                    
                   />
                 </article>
               )}

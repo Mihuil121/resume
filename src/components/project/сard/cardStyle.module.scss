@@ -21,6 +21,19 @@ $butH: 3rem;
     }
 }
 
+
+@keyframes floatR {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(+1rem);
+    }
+}
+
 @mixin flexCenter {
     display: flex;
     justify-content: center;
@@ -86,6 +99,10 @@ $butH: 3rem;
             &.imgLeft {
                 margin-left: 4rem;
                 animation: float 4s ease-in-out infinite;
+            }
+            &.imgRight{
+                margin-left: 4rem;
+                animation: floatR 4s ease-in-out infinite; 
             }
         }
 
