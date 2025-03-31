@@ -65,8 +65,7 @@ const CardProject: React.FC = () => {
                     src={data.icon}
                     alt={data.text}
                     className={styles.iconCard}
-                    width={40}
-                    height={40}
+                   
                   />
                   <p className={Oswalds.className}>{data.text}</p>
                 </section>

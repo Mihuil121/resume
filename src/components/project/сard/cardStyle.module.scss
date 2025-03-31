@@ -10,137 +10,138 @@ $butW: 10rem;
 $butH: 3rem;
 
 @keyframes float {
-
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-1rem);
-    }
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-1rem);
+  }
 }
 
-
 @keyframes floatR {
-
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(+1rem);
-    }
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(+1rem);
+  }
 }
 
 @mixin flexCenter {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @mixin iconStyle {
-    width: $iconWH;
-    height: $iconWH;
-    background: transparent;
-    border: none;
+  width: $iconWH;
+  height: $iconWH;
+  background: transparent;
+  border: none;
 }
 
 .cardBlok {
+  @include flexCenter;
+  flex-direction: column;
+  
+  .dataI {
     @include flexCenter;
-    flex-direction: column;
-
-    .dataI {
-        @include flexCenter;
-        margin-top: 3rem;
-
-        .imageCard {
-            position: relative;
-            z-index: 0.5;
-
-            img {
-                width: $imgW;
-                height: $imgH;
-                border-radius: 0.5rem;
-                border: 2px solid $secondary-color;
-                transition: $transition-slow;
-                transform-style: preserve-3d;
-                box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.2);
-
-                &:hover {
-                    border-color: $primary-color;
-                    transform: scale(1.05) rotateZ(1deg);
-                    box-shadow:
-                        0 2.5rem 5rem rgba(255, 255, 255, 0.1),
-                        0 0 2rem rgba($primary-color, 0.4);
-
-                    &::after {
-                        opacity: 1;
-                    }
-                }
-
-                &::after {
-                    content: '';
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
-                    border-radius: 0.5rem;
-                    background: linear-gradient(45deg,
-                            rgba($primary-color, 0.1) 0%,
-                            rgba(255, 255, 255, 0) 50%);
-                    opacity: 0;
-                    transition: $transition-slow;
-                }
-            }
-
-            &.imgLeft {
-                margin-left: 4rem;
-                animation: float 4s ease-in-out infinite;
-            }
-            &.imgRight{
-                margin-left: 4rem;
-                animation: floatR 4s ease-in-out infinite; 
-            }
+    margin-top: 3rem;
+    
+    .imageCard {
+      position: relative;
+      z-index: 0.5;
+      
+      img {
+        width: $imgW;
+        height: $imgH;
+        border-radius: 0.5rem;
+        border: 2px solid $secondary-color;
+        transition: $transition-slow;
+        transform-style: preserve-3d;
+        box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.2);
+        
+        &:hover {
+          border-color: $primary-color;
+          transform: scale(1.05) rotateZ(1deg);
+          box-shadow:
+            0 2.5rem 5rem rgba(255, 255, 255, 0.1),
+            0 0 2rem rgba($primary-color, 0.4);
+            
+          &::after {
+            opacity: 1;
+          }
         }
-
-
-        .textP {
-            font-size: 2rem;
-            color: aliceblue;
-            width: 50rem;
-            @include flexCenter;
-            flex-direction: column;
-
-            .text-title {
-                @include flexCenter;
-                gap: 1rem;
-            }
-
-            .iconCard {
-                @include iconStyle;
-                margin-right: 1rem;
-            }
+        
+        &::after {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          border-radius: 0.5rem;
+          background: linear-gradient(45deg,
+            rgba($primary-color, 0.1) 0%,
+            rgba(255, 255, 255, 0) 50%);
+          opacity: 0;
+          transition: $transition-slow;
         }
-
-        button {
-            background: #d38e8e;
-            border-radius: 0.5rem;
-            width: $butW;
-            height: $butH;
-            border: 0px;
-            color: #f0f8ff;
-            cursor: pointer;
-           transition: 0.5s;
-
-            &:hover {
-                width: $butW+0.5;
-                height: $butH+0.5;
-                font-size: 1.1rem;
-            }
-        }
-
+      }
+      
+      &.imgLeft {
+        margin-left: 4rem;
+        animation: float 4s ease-in-out infinite;
+      }
+      
+      &.imgRight {
+        margin-left: 4rem;
+        animation: floatR 4s ease-in-out infinite;
+      }
     }
+    
+    .textP {
+      font-size: 2rem;
+      color: aliceblue;
+      width: 50rem;
+      @include flexCenter;
+      flex-direction: column;
+      
+      .text-title {
+        width: 100%;
+        text-align: center;
+        align-self: center;
+        
+        > * {
+          margin: 0 auto;
+          text-align: center;
+        }
+      }
+      
+      .iconCard {
+        @include iconStyle;
+        display: block;
+        margin: 0 auto;
+      }
+    }
+    
+    button {
+      background: #d38e8e;
+      border-radius: 0.5rem;
+      width: $butW;
+      height: $butH;
+      border: 0px;
+      color: #f0f8ff;
+      cursor: pointer;
+      transition: 0.5s;
+      
+      &:hover {
+        width: calc(#{$butW} + 0.5rem);
+        height: calc(#{$butH} + 0.5rem);
+        font-size: 1.1rem;
+      }
+    }
+  }
 }
