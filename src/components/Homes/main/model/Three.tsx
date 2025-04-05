@@ -53,7 +53,7 @@ const ThreeDModel: React.FC = () => {
   return (
     <div
       ref={containerRef}
-      style={{ width: '100%', height: '100%', minHeight: '25px', position: 'relative' }}
+      style={{ width: '100%', height: '100%', minHeight: '100%', position: 'relative' }}
     >
       <Canvas
         style={{
