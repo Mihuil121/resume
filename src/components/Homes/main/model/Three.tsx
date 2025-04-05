@@ -25,8 +25,8 @@ const Model: React.FC<ModelProps> = ({ onLoad }) => {
   return (
     <primitive
       object={scene}
-      scale={[3, 3, 3]}
-      position={[0, -0.5, 0]}
+      scale={[2.7, 2.7, 2.7]}
+      position={[0, 0, 0]}
       rotation={[0, -Math.PI / 4, 0]}
     />
   );
