@@ -32,6 +32,7 @@ interface IStyle {
 
 const HomeMain: React.FC = () => {
     const [isVisible, setIsVisible] = useState(false);
+    const [modelLoaded, setModelLoaded] = useState(false);
 
     useEffect(() => {
         setIsVisible(true);
@@ -105,8 +106,8 @@ const HomeMain: React.FC = () => {
                             <motion.div
                                 initial={{ scale: 0.9, opacity: 0 }}
                                 animate={{ 
-                                    scale: isVisible ? 1 : 0.9, 
-                                    opacity: isVisible ? 1 : 0 
+                                    scale: isVisible && modelLoaded ? 1 : 0.9, 
+                                    opacity: isVisible && modelLoaded ? 1 : 0 
                                 }}
                                 transition={{ 
                                     duration: 0.8, 
@@ -119,9 +120,13 @@ const HomeMain: React.FC = () => {
                                     boxShadow: '0 10px 30px rgba(0, 0, 0, 0.2)',
                                     position: 'relative',
                                     zIndex: 1,
+                                    width: '100%',
+                                    maxWidth: '320px', 
+                                    height: '100%',
+                                    maxHeight: '280px'
                                 }}
                             >
-                                <ThreeDModel />
+                                {isVisible && <ThreeDModel onLoad={() => setModelLoaded(true)} />}
                             </motion.div>
                         </section>
                     </section>
