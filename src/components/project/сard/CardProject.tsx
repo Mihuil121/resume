@@ -6,6 +6,7 @@ import { CardImage } from '@/app/store/storeMane'
 import styles from './cardStyle.module.scss'
 import { Oswald } from 'next/font/google'
 import { motion } from 'framer-motion'
+import Link from 'next/link'
 
 const Oswalds = Oswald({
   subsets: ['latin'],
@@ -23,7 +24,7 @@ const CardProject: React.FC = () => {
   }, [setFlag])
 
   useEffect(() => {
-    const timeouts = cardData.map((_, index) => 
+    const timeouts = cardData.map((_, index) =>
       setTimeout(() => {
         setIsVisible(prev => prev.map((v, i) => i <= index ? true : v))
       }, index * 300)
@@ -44,13 +45,15 @@ const CardProject: React.FC = () => {
               className={styles.dataI}
               key={index}
               initial={{ scale: 0, opacity: 0 }}
-              animate={{ 
+              animate={{
                 scale: isVisible[index] ? 1 : 0,
                 opacity: isVisible[index] ? 1 : 0
               }}
             >
               {isEven && (
-                <article className={`${styles.imageCard} ${styles.imgLeft}`}>
+                <article className={`${styles.imageCard} ${styles.imgLeft}`} onClick={() => {
+                  window.location.href = `/${index}`
+                }}>
                   <Image
                     src={data.mainPhoto}
                     alt={data.text}
@@ -65,22 +68,28 @@ const CardProject: React.FC = () => {
                     src={data.icon}
                     alt={data.text}
                     className={styles.iconCard}
-                   
+
                   />
                   <p className={Oswalds.className}>{data.text}</p>
                 </section>
                 <section className="text-button">
-                  <button>перейти</button>
+                  <Link href={`/${index}`}>
+                    <button>
+                      перейти
+                    </button>
+                  </Link>
                 </section>
               </article>
               {!isEven && (
-                <article className={`${styles.imageCard} ${styles.imgRight}`}>
+                <article className={`${styles.imageCard} ${styles.imgRight}`} onClick={() => {
+                  window.location.href = `/${index}`
+                }}>
                   <Image
                     src={data.mainPhoto}
                     alt={data.text}
                     width={500}
                     height={300}
-                    
+
                   />
                 </article>
               )}

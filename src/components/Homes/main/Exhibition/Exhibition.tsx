@@ -156,7 +156,7 @@ const Exhibition: React.FC = () => {
                                         transition: 'background 0.3s, color 0.3s'
                                     }}
                                 >
-                                    <Link href={'/'} style={{ textDecoration: "none", color: 'inherit' }}>
+                                    <Link href={'/project'} style={{ textDecoration: "none", color: 'inherit' }}>
                                         перейти
                                     </Link>
                                 </motion.button>
