@@ -29,6 +29,7 @@ export const contact: IContact[] = [
         type: 'discord',
         id: 2,
         icon: BsDiscord,
-        color: '#7289da'
+        color: '#7289da',
+        url: '/hiMan'
     },
 ]
