@@ -19,20 +19,22 @@ const HiMan: React.FC = () => {
       videoR.current.play();
     }
   }, [isVideo]);
-  const hendalePause = (event:React.MouseEvent<HTMLVideoElement>) =>{
-    if( videoR.current){
+  const hendalePause = (event: React.MouseEvent<HTMLVideoElement>) => {
+    if (videoR.current) {
       videoR.current.play();
     }
   }
   return (
     <div className={styles.Video} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }} >
       {isVideo ? (
-        <video ref={videoR} onMouseDown={hendalePause} loop onPause={hendalePause}>
-          <source src={videoSRC} type='video/mp4' />
-          ты остался без мема
-        </video>
+        <div className={styles.videoContent}>
+          <video ref={videoR} onMouseDown={hendalePause} loop onPause={hendalePause} className={styles.video}>
+            <source src={videoSRC} type='video/mp4' />
+            ты остался без мема
+          </video>
+        </div>
       ) : (
-        <button onClick={handelVideo}>
+        <button onClick={handelVideo} className={styles.button}>
           запусти мем
         </button>
       )}

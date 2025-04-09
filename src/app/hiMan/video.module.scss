@@ -1,0 +1,37 @@
+$wR: 15rem;
+$hR: 5rem;
+
+.button {
+    background-color: rgb(255, 159, 159);
+    border-radius: 0.3rem;
+    border: #FFF solid 1px;
+    width: $wR;
+    height: $hR;
+    font-size: 2rem;
+    transition: 0.3s;
+    color: white;
+    cursor: pointer;
+
+    &:hover {
+        color: black;
+        width: $wR + 2;
+        height: $hR + 2;
+        background-color: rgb(159, 175, 255);
+    }
+}
+
+.videoContent {
+    position: absolute;
+    width: 100%;
+    background-color: black;
+    z-index: 100;
+    margin-top: -18rem;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .video {
+        width: 60%;
+    }
+}
