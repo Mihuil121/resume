@@ -48,7 +48,7 @@ const Exhibition: React.FC = () => {
 
     return (
         <>
-            <div className={styles.Exh} ref={titleRef}>
+            <div className={styles.Exh} ref={titleRef} style={{marginBottom:'0.3rem'}}>
                 <motion.article
                     className={`${styles.titleExh} ${rubik.className}`}
                     initial={{ opacity: 0, y: -100 }}

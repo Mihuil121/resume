@@ -40,7 +40,7 @@ export default async function Page({ params }: PageProps) {
 
   const activeProject: ICardData | null = cardData.find((card: ICardData, index: number) => index.toString() === idProject) || null;
 
-  if (!activeProject) return <div className={styles.notFound}>Проект не найден</div>;
+  if (!activeProject) return <div className={styles.notFound}>Такой вкладки нет</div>;
 
   const allPhotos: StaticImageData[] = [activeProject.mainPhoto, ...activeProject.photo];
 

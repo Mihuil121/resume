@@ -75,7 +75,7 @@ const CardProject: React.FC = () => {
                 <section className="text-button">
                   <Link href={`/${index}`}>
                     <button>
-                      перейти
+                      Подробнее
                     </button>
                   </Link>
                 </section>
