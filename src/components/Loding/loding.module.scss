@@ -1,118 +1,239 @@
+// Переменные
+$accent-color: #FA8072;
+$background-color: #000;
+$text-color: #FA8072;
+$border-radius: 8px;
+$transition-duration: 0.3s;
+$breakpoint-tablet: 768px;
+$breakpoint-mobile: 576px;
+$breakpoint-small: 375px;
+
 .loadingContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    width: 100vw;
-    background-color: #000;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-    overflow: hidden;
-  }
-  
-  .content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
-    position: relative;
-  }
-  
-  .spinner {
-    width: 60px;
-    height: 60px;
-    border: 2px solid rgba(250, 128, 114, 0.2);
-    border-radius: 50%;
-    border-top-color: #FA8072;
-    border-left-color: #FA8072;
-    opacity: 0.9;
-  }
-  
-  .imageWrapper {
-    position: relative;
-    border-radius: 8px;
-    overflow: hidden;
-    background-color: rgba(0, 0, 0, 0.4);
-    box-shadow: 0 10px 25px rgba(250, 128, 114, 0.15);
-    padding: 10px;
-    
-    &::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      border: 1px solid rgba(250, 128, 114, 0.3);
-      border-radius: 8px;
-      pointer-events: none;
-    }
-    
-    img {
-      border-radius: 4px;
-      object-fit: cover;
-      filter: contrast(1.05) brightness(1.05);
-    }
-  }
-  
-  .loadingText {
-    color: #FA8072;
-    font-size: 1.2rem;
-    font-weight: 300;
-    letter-spacing: 8px;
-    margin-top: 1.5rem;
-    text-transform: uppercase;
-    
-    &::after {
-      content: '...';
-      display: inline-block;
-      animation: ellipsis 1.5s infinite;
-      width: 20px;
-    }
-  }
-  
-  @keyframes ellipsis {
-    0% { content: '.'; }
-    33% { content: '..'; }
-    66% { content: '...'; }
-    100% { content: '.'; }
-  }
-  
-  // Simple gradient accents
-  .loadingContainer::before,
-  .loadingContainer::after {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: $background-color;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  overflow: hidden;
+
+  &::before,
+  &::after {
     content: '';
     position: absolute;
     border-radius: 50%;
     z-index: -1;
+    background: radial-gradient(circle at center, rgba($accent-color, 0.05) 0%, rgba(0, 0, 0, 0) 70%);
   }
-  
-  .loadingContainer::before {
+
+  &::before {
     width: 200px;
     height: 200px;
-    background: radial-gradient(circle at center, rgba(250, 128, 114, 0.07) 0%, rgba(0, 0, 0, 0) 70%);
     top: 10%;
     right: 10%;
   }
-  
-  .loadingContainer::after {
+
+  &::after {
     width: 250px;
     height: 250px;
-    background: radial-gradient(circle at center, rgba(250, 128, 114, 0.05) 0%, rgba(0, 0, 0, 0) 70%);
     bottom: 10%;
     left: 10%;
   }
-  
-  @media (max-width: 768px) {
-    .spinner {
-      width: 50px;
-      height: 50px;
-    }
-    
-    .loadingText {
-      font-size: 1rem;
-      letter-spacing: 6px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  position: relative;
+}
+
+.spinner {
+  width: 60px;
+  height: 60px;
+  border: 2px solid rgba($accent-color, 0.2);
+  border-radius: 50%;
+  border-top-color: $accent-color;
+  border-left-color: $accent-color;
+  opacity: 0.9;
+}
+
+.imageWrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  max-width: 400px;
+  border-radius: $border-radius;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 10px;
+  margin: 0 auto;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 1px solid rgba($accent-color, 0.3);
+    border-radius: $border-radius;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+    max-height: 300px;
+    border-radius: calc($border-radius - 2px);
+    object-fit: contain;
+    filter: contrast(1.05) brightness(1.05);
+  }
+}
+
+.loadingText {
+  color: $text-color;
+  font-size: 1.2rem;
+  font-weight: 300;
+  letter-spacing: 8px;
+  margin-top: 1.5rem;
+  text-transform: uppercase;
+
+  &::after {
+    content: '...';
+    display: inline-block;
+    animation: ellipsis 1.5s infinite;
+    width: 20px;
+  }
+}
+
+@keyframes ellipsis {
+  0% { content: '.'; }
+  33% { content: '..'; }
+  66% { content: '...'; }
+  100% { content: '.'; }
+}
+
+// Медиа-запросы
+@media (max-width: $breakpoint-tablet) {
+  .spinner {
+    width: 50px;
+    height: 50px;
+  }
+
+  .imageWrapper {
+    max-width: 300px;
+    padding: 8px;
+
+    img {
+      max-height: 250px;
     }
   }
+
+  .loadingText {
+    font-size: 1rem;
+    letter-spacing: 6px;
+  }
+
+  .loadingContainer {
+    &::before {
+      width: 150px;
+      height: 150px;
+    }
+
+    &::after {
+      width: 180px;
+      height: 180px;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-mobile) {
+  .content {
+    gap: 1.5rem;
+  }
+
+  .spinner {
+    width: 40px;
+    height: 40px;
+    border-width: 1.5px;
+  }
+
+  .imageWrapper {
+    max-width: 250px;
+    padding: 6px;
+
+    img {
+      max-height: 200px;
+    }
+
+    &::after {
+      border-width: 0.8px;
+    }
+  }
+
+  .loadingText {
+    font-size: 0.9rem;
+    letter-spacing: 4px;
+    margin-top: 1rem;
+
+    &::after {
+      width: 15px;
+    }
+  }
+
+  .loadingContainer {
+    &::before {
+      width: 120px;
+      height: 120px;
+    }
+
+    &::after {
+      width: 150px;
+      height: 150px;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-small) {
+  .content {
+    gap: 1rem;
+  }
+
+  .spinner {
+    width: 35px;
+    height: 35px;
+    border-width: 1.2px;
+  }
+
+  .imageWrapper {
+    max-width: 200px;
+    padding: 5px;
+
+    img {
+      max-height: 150px;
+    }
+  }
+
+  .loadingText {
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+    margin-top: 0.8rem;
+  }
+}
+
+@media (max-height: 600px) {
+  .imageWrapper {
+    max-height: 180px;
+
+    img {
+      max-height: 140px;
+    }
+  }
+}

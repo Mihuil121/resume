@@ -13,7 +13,7 @@ export const capLi:ICapLi[] = [
         url:'/project'
     },
     {
-        text:'Резюмэ',
-        url:'/resume'
+        text:'Резюме',
+        url:'/PDF'
     },
 ]

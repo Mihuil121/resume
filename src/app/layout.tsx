@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import './sassGlobal.scss'
 import CapComponents from "@/components/Cap/CapComponents";
 
 export const metadata: Metadata = {

@@ -107,3 +107,94 @@ $remI: 10rem;
     position: absolute;
     height: $remI ;
 }
+
+@media (max-width: 768px) {
+  .mainCap {
+    border-radius: 0;
+    animation: none;
+  }
+
+  .contentImage img {
+    width: 6rem;
+    height: 6rem;
+  }
+
+  .Border0,
+  .Border1,
+  .Border2 {
+    height: 0.4rem;
+    width: 3rem;
+    margin: 0.2rem;
+  }
+
+  .contentBorder {
+    margin: 2rem;
+    top: 3%;
+  }
+
+  .iconComponents {
+    font-size: 4rem;
+    margin-top: -1.5rem;
+
+    &:hover {
+      font-size: 4.2rem;
+    }
+  }
+
+  .Music {
+    right: 8rem;
+    height: 6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .Border0,
+  .Border1,
+  .Border2 {
+    width: 2.5rem;
+    height: 0.3rem;
+  }
+
+  .contentBorder {
+    margin: 1.5rem;
+  }
+
+  .iconComponents {
+    font-size: 3.5rem;
+    
+    &:hover {
+      font-size: 3.7rem;
+    }
+  }
+
+  .Music {
+    right: 6rem;
+    height: 5rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .Border0,
+  .Border1,
+  .Border2 {
+    width: 2rem;
+    height: 0.25rem;
+  }
+
+  .contentBorder {
+    margin: 1rem;
+  }
+
+  .iconComponents {
+    font-size: 3rem;
+    
+    &:hover {
+      font-size: 3.2rem;
+    }
+  }
+
+  .Music {
+    right: 4rem;
+    height: 4rem;
+  }
+}

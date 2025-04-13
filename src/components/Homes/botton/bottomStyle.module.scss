@@ -29,3 +29,34 @@ $whr:1.5rem;
         }
     }
 }
+
+@media (max-width: 548px) {
+    .bottom {
+      height: 4rem;
+      
+      .iconB {
+        justify-content: center;
+        
+        p {
+          display: none;
+        }
+        
+        svg {
+          margin-right: 0;
+          width: 2rem;
+          height: 2rem;
+        }
+      }
+    }
+  }
+  
+  @media (max-width: 320px) {
+    .bottom {
+      height: 3.5rem;
+      
+      .iconB svg {
+        width: 1.8rem;
+        height: 1.8rem;
+      }
+    }
+  }

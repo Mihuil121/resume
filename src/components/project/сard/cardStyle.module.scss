@@ -145,3 +145,182 @@ $butH: 3rem;
     }
   }
 }
+
+@media screen and (max-width: 1200px) {
+  $imgW: 40rem;
+  $imgH: 25rem;
+  
+  .cardBlok {
+    .dataI {
+      .imageCard {
+        img {
+          width: $imgW;
+          height: $imgH;
+        }
+      }
+      
+      .textP {
+        width: 45rem;
+        font-size: 1.8rem;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 992px) {
+  $imgW: 35rem;
+  $imgH: 22rem;
+  $iconWH: 4.5rem;
+  
+  .cardBlok {
+    .dataI {
+      .imageCard {
+        img {
+          width: $imgW;
+          height: $imgH;
+        }
+        
+        &.imgLeft, &.imgRight {
+          margin-left: 2rem;
+        }
+      }
+      
+      .textP {
+        width: 35rem;
+        font-size: 1.6rem;
+        
+        .iconCard {
+          width: $iconWH;
+          height: $iconWH;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  $imgW: 30rem;
+  $imgH: 20rem;
+  $iconWH: 4rem;
+  $butW: 9rem;
+  $butH: 2.8rem;
+  
+  .cardBlok {
+    .dataI {
+      flex-direction: column;
+      margin-top: 5rem;
+      
+      .imageCard {
+        img {
+          width: $imgW;
+          height: $imgH;
+        }
+        
+        &.imgLeft, &.imgRight {
+          margin-left: 0;
+          margin-bottom: 2rem;
+        }
+      }
+      
+      .textP {
+        width: 30rem;
+        font-size: 1.5rem;
+        
+        .iconCard {
+          width: $iconWH;
+          height: $iconWH;
+        }
+      }
+      
+      button {
+        width: $butW;
+        height: $butH;
+        
+        &:hover {
+          width: calc(#{$butW} + 0.3rem);
+          height: calc(#{$butH} + 0.3rem);
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 576px) {
+  $imgW: 25rem;
+  $imgH: 18rem;
+  $iconWH: 3.5rem;
+  $butW: 8rem;
+  $butH: 2.5rem;
+  
+  .cardBlok {
+    .dataI {
+      .imageCard {
+        img {
+          width: $imgW;
+          height: $imgH;
+        }
+      }
+      
+      .textP {
+        width: 25rem;
+        font-size: 1.3rem;
+        
+        .iconCard {
+          width: $iconWH;
+          height: $iconWH;
+        }
+      }
+      
+      button {
+        width: $butW;
+        height: $butH;
+        
+        &:hover {
+          width: calc(#{$butW} + 0.2rem);
+          height: calc(#{$butH} + 0.2rem);
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 375px) {
+  $imgW: 20rem;
+  $imgH: 15rem;
+  $iconWH: 3rem;
+  $butW: 7rem;
+  $butH: 2.3rem;
+  
+  .cardBlok {
+    .dataI {
+      .imageCard {
+        img {
+          width: $imgW;
+          height: $imgH;
+        }
+      }
+      
+      .textP {
+        width: 20rem;
+        font-size: 1.2rem;
+        
+        .iconCard {
+          width: $iconWH;
+          height: $iconWH;
+        }
+      }
+      
+      button {
+        width: $butW;
+        height: $butH;
+        
+        &:hover {
+          width: calc(#{$butW} + 0.2rem);
+          height: calc(#{$butH} + 0.2rem);
+          font-size: 0.9rem;
+        }
+      }
+    }
+  }
+}

@@ -148,3 +148,160 @@ $breakpoint-mobile: 480px;
   color: $text-color;
   background-color: $dark-bg;
 }
+
+@media screen and (max-width: 992px) {
+  .container {
+    padding: 1.5rem 0.8rem;
+    max-width: 90%;
+    overflow-x: hidden;
+  }
+  
+  .swiper {
+    height: 70vh;
+    max-width: 90%;
+    margin: 0 auto 2rem;
+    overflow: hidden;
+  }
+  
+  .title {
+    margin-bottom: 1.5rem;
+  }
+  
+  .container :where(.swiper-button-next),
+  .container :where(.swiper-button-prev) {
+    width: 35px;
+    height: 35px;
+    
+    &::after {
+      font-size: 16px;
+    }
+  }
+}
+
+@media screen and (max-width: $breakpoint-tablet) {
+  .container {
+    padding: 1rem 0.5rem;
+    max-width: 95%;
+    overflow-x: hidden;
+  }
+  
+  .swiper {
+    height: 60vh;
+    max-width: 95%;
+    margin: 0 auto 2rem;
+    overflow: hidden;
+  }
+  
+  .description {
+    opacity: 1;
+    transform: translateY(0);
+    padding: 1rem;
+    width: 100%;
+  }
+  
+  .container :where(.swiper-button-next),
+  .container :where(.swiper-button-prev) {
+    width: 30px;
+    height: 30px;
+    
+    &::after {
+      font-size: 14px;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .container {
+    max-width: 100%;
+    overflow-x: hidden;
+    
+    /* Apply these styles to make the container act like a wrapper that prevents scrolling */
+    position: relative;
+    width: 100vw;
+    box-sizing: border-box;
+    
+    /* This class can be passed to a parent wrapper component if needed */
+    &:global(.pageWrapper) {
+      overflow-x: hidden;
+    }
+  }
+  
+  .title {
+    margin-bottom: 1rem;
+  }
+  
+  .swiper {
+    height: 55vh;
+    max-width: 100%;
+    margin: 0 auto 1.5rem;
+    overflow: hidden;
+  }
+  
+  .container :where(.swiper-button-next),
+  .container :where(.swiper-button-prev) {
+    width: 28px;
+    height: 28px;
+    
+    &::after {
+      font-size: 12px;
+    }
+  }
+  
+  .image {
+    max-width: 100%;
+    object-fit: contain !important;
+  }
+}
+
+@media screen and (max-width: $breakpoint-mobile) {
+  .container {
+    padding: 0.8rem 0.3rem;
+    width: 100%;
+    overflow-x: hidden;
+  }
+  
+  .swiper {
+    height: 50vh;
+    width: 100%;
+    margin: 0 auto 1rem;
+    overflow: hidden;
+  }
+  
+  .description {
+    padding: 0.8rem;
+    width: 100%;
+  }
+  
+  .container :where(.swiper-button-next),
+  .container :where(.swiper-button-prev) {
+    width: 25px;
+    height: 25px;
+    
+    &::after {
+      font-size: 10px;
+    }
+  }
+  
+  .image {
+    width: 100% !important;
+    height: auto !important;
+    max-height: 100%;
+  }
+  
+  .swiper-wrapper {
+    overflow: hidden;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .swiper {
+    height: 45vh;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .description {
+    padding: 0.6rem;
+    width: 100%;
+  }
+}
