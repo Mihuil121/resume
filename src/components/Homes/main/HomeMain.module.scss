@@ -27,18 +27,18 @@ $top: 5rem;
     width: 70%;
     text-align: left;
     color: aliceblue;
-    
+
     h5 {
         font-size: 1.5rem;
         margin-bottom: 1rem;
     }
-    
+
     h1 {
         font-size: 3.5rem;
         margin-bottom: 1.5rem;
         line-height: 1.2;
     }
-    
+
     p {
         font-size: 14px;
         line-height: 1.6;
@@ -50,7 +50,7 @@ $top: 5rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    
+
     img {
         max-width: 100%;
         height: auto;
@@ -63,25 +63,25 @@ $top: 5rem;
         height: auto;
         min-height: 50vh;
     }
-    
+
     .contant {
         flex-direction: column;
         padding: 3rem 2rem;
     }
-    
+
     .contantText {
         width: 100%;
         margin-bottom: 3rem;
         text-align: center;
-        
+
         h1 {
             font-size: 2.5rem;
         }
     }
-    
+
     .contantImg {
         width: 100%;
-        
+
         img {
             max-width: 70%;
         }
@@ -93,13 +93,21 @@ $top: 5rem;
         h1 {
             font-size: 2rem;
         }
-        
+
         h5 {
             font-size: 1.2rem;
         }
     }
-    
+
     .contantImg img {
         max-width: 90%;
+    }
+}
+
+@media (max-width: 600px) {
+    .contantText {
+        p {
+            display: none;
+        }
     }
 }

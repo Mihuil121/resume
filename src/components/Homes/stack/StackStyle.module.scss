@@ -54,6 +54,155 @@ $OneRem:1rem;
 
 @media (max-width: 1200px) {
     .Stack {
+      $dark-bg: #121212;
+      $dark-accent: #000000;
+      $text-color: #ffffff;
+      $transition-default: all 0.3s ease;
+      $box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      $gradient-overlay: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+      $border-radius: 8px;
+      
+      $breakpoint-tablet: 768px;
+      $breakpoint-mobile: 480px;
+      
+      @mixin flex-center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      
+      @mixin responsive-font($desktop, $tablet: null, $mobile: null) {
+        font-size: $desktop;
+        
+        @if $tablet {
+          @media (max-width: $breakpoint-tablet) {
+            font-size: $tablet;
+          }
+        }
+        
+        @if $mobile {
+          @media (max-width: $breakpoint-mobile) {
+            font-size: $mobile;
+          }
+        }
+      }
+      
+      @mixin responsive-height($desktop, $tablet: null, $mobile: null) {
+        height: $desktop;
+        
+        @if $tablet {
+          @media (max-width: $breakpoint-tablet) {
+            height: $tablet;
+          }
+        }
+        
+        @if $mobile {
+          @media (max-width: $breakpoint-mobile) {
+            height: $mobile;
+          }
+        }
+      }
+      
+      .container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem 1rem;
+        background-color: $dark-bg;
+        color: $text-color;
+        min-height: 100vh;
+      }
+      
+      .container :where(.swiper-button-next),
+      .container :where(.swiper-button-prev) {
+        color: $text-color;
+        background: rgba(0, 0, 0, 0.3);
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        transition: $transition-default;
+        
+        &:hover {
+          background: rgba(0, 0, 0, 0.5);
+        }
+        
+        &::after {
+          font-size: 18px;
+        }
+      }
+      
+      .container :where(.swiper-pagination-bullet) {
+        background: $text-color;
+        opacity: 0.5;
+      }
+      
+      .container :where(.swiper-pagination-bullet-active) {
+        opacity: 1;
+        background: $text-color;
+      }
+      
+      .title {
+        @include responsive-font(2.5rem, 2rem, 1.5rem);
+        font-weight: 300;
+        text-align: center;
+        margin-bottom: 2rem;
+        color: $text-color;
+        letter-spacing: 1px;
+      }
+      
+      .swiper {
+        width: 100%;
+        @include responsive-height(80vh, 60vh, 50vh);
+        margin-bottom: 3rem;
+        border-radius: $border-radius;
+        overflow: hidden;
+        box-shadow: $box-shadow;
+        
+        &:hover {
+          .description {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      }
+      
+      .image {
+        position: relative !important;
+        height: 100% !important;
+        width: 100% !important;
+        object-fit: contain !important;
+        background-color: $dark-accent;
+        transition: transform 0.3s ease;
+      }
+      
+      .description {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 1.5rem;
+        background: $gradient-overlay;
+        color: $text-color;
+        z-index: 10;
+        line-height: 1.6;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: $transition-default;
+        
+        @include responsive-font(1.1rem, 1rem);
+        
+        @media (max-width: $breakpoint-tablet) {
+          padding: 1rem;
+        }
+      }
+      
+      .notFound {
+        @include flex-center;
+        height: 80vh;
+        font-size: 1.5rem;
+        color: $text-color;
+        background-color: $dark-bg;
+      }
       .cardStack {
         max-width: 90vw;
         grid-template-columns: repeat(3, minmax(100px, 1fr));
@@ -65,7 +214,6 @@ $OneRem:1rem;
       }
     }
   }
-  
   @media (max-width: 768px) {
     .Stack {
       .title {
@@ -80,20 +228,23 @@ $OneRem:1rem;
       }
   
       .cardStack {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, minmax(90px, 1fr)); // 3 колонки
         margin-top: 3rem;
         padding: 0.8rem;
-        gap: 0.8rem;
+        gap: 0.5rem;
+        max-width: 95vw;
         
         .cardS {
-          padding: 0.8rem;
+          padding: 0.6rem;
+          width: auto;
+          min-width: unset;
           flex-direction: column;
           text-align: center;
           
           p {
             margin-left: 0;
             margin-top: 0.5rem;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
           }
         }
       }
@@ -106,7 +257,25 @@ $OneRem:1rem;
     }
   }
   
-  @media (max-width: 480px) {
+  @media (max-width: 576px) {
+    .Stack {
+      .cardStack {
+        grid-template-columns: repeat(3, minmax(80px, 1fr)); // Уже 3 колонки
+        gap: 0.4rem;
+        padding: 0.4rem;
+        
+        .cardS {
+          padding: 0.4rem;
+          
+          p {
+            font-size: 0.7rem;
+          }
+        }
+      }
+    }
+  }
+  
+  @media (max-width: 400px) {
     .Stack {
       .title {
         margin-top: 6rem;
@@ -118,11 +287,11 @@ $OneRem:1rem;
       }
   
       .cardStack {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, minmax(90px, 1fr)); // 2 колонки только при <400px
         max-width: 95vw;
         
         .cardS {
-          max-width: 12rem;
+          max-width: none;
           margin: 0 auto;
         }
       }
@@ -149,13 +318,13 @@ $OneRem:1rem;
           padding: 0.6rem;
           
           p {
-            font-size: 0.8rem;
+            font-size: 0.6rem;
           }
         }
       }
     }
   }
-
+  
   @media (hover: none) and (pointer: coarse) {
     .Stack {
       .cardS {

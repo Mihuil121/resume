@@ -5,6 +5,7 @@ import styles from './ResumeStyle.module.scss'
 import { Rubik_Mono_One } from "next/font/google"
 import { NextFont } from "next/dist/compiled/@next/font"
 import file from '../../pdf/mihuil121.pdf'
+import { motion } from "motion/react"
 
 interface IHendel {
     (): void
@@ -31,7 +32,7 @@ const Resume: React.FC = () => {
     }
 
     return (
-        <div>
+        <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} >
             <main style={{ display: 'flex', justifyContent: 'center', marginTop: '10rem' }}>
                 <section className={styles.contentR}>
                     <div className={styles.contentText}>
@@ -50,7 +51,7 @@ const Resume: React.FC = () => {
             <div className={styles.buttonR} style={{ display: 'flex', justifyContent: 'center', marginTop: '2rem' }}>
                 <button onClick={hendelClick}>Скачать резюме</button>
             </div>
-        </div>
+        </motion.div>
     )
 }
 
