@@ -287,12 +287,20 @@ $OneRem:1rem;
       }
   
       .cardStack {
-        grid-template-columns: repeat(2, minmax(90px, 1fr)); // 2 колонки только при <400px
-        max-width: 95vw;
+        grid-template-columns: repeat(3, minmax(75px, 1fr)); // Уменьшаем минимальную ширину
+        gap: 0.3rem;
+        padding: 0.3rem;
+        max-width: 98vw; // Увеличиваем допустимую ширину
         
         .cardS {
-          max-width: none;
-          margin: 0 auto;
+          padding: 0.3rem;
+          min-width: unset;
+          
+          p {
+            font-size: 0.6rem; // Уменьшаем текст
+            line-height: 1.2;
+            margin-top: 0.3rem;
+          }
         }
       }
     }
@@ -301,24 +309,25 @@ $OneRem:1rem;
   @media (max-width: 320px) {
     .Stack {
       .title {
-        width: 9rem;
-        margin-top: 5rem;
+        width: 8rem;
+        margin-top: 4rem;
         
         h2 {
-          font-size: 1rem;
+          font-size: 0.9rem;
         }
       }
   
       .cardStack {
-        padding: 0.5rem;
-        gap: 0.5rem;
+        grid-template-columns: repeat(3, minmax(70px, 1fr)); // Сохраняем 3 колонки
+        gap: 0.2rem;
+        padding: 0.2rem;
         
         .cardS {
-          max-width: 100%;
-          padding: 0.6rem;
+          padding: 0.2rem;
           
           p {
-            font-size: 0.6rem;
+            font-size: 0.55rem;
+            margin-top: 0.2rem;
           }
         }
       }
